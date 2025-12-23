@@ -25,16 +25,16 @@ const FAQItem = ({ faq, index }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b border-white/10 last:border-none">
+        <div className="border-b border-black/5 last:border-none">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full py-8 flex items-center justify-between text-left group"
             >
-                <span className="text-xl md:text-2xl font-bold text-text-secondary group-hover:text-white transition-colors">
+                <span className={`text-xl md:text-2xl font-black transition-colors ${isOpen ? 'text-primary' : 'text-text-primary group-hover:text-primary'}`}>
                     {faq.question}
                 </span>
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-primary text-white' : 'bg-black/5 text-text-primary group-hover:bg-primary group-hover:text-white'}`}>
+                    {isOpen ? <Minus size={20} strokeWidth={3} /> : <Plus size={20} strokeWidth={3} />}
                 </div>
             </button>
             <AnimatePresence>
@@ -46,7 +46,7 @@ const FAQItem = ({ faq, index }) => {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="pb-8 text-lg text-text-muted leading-relaxed max-w-4xl">
+                        <p className="pb-8 text-lg text-text-secondary leading-relaxed max-w-4xl font-medium">
                             {faq.answer}
                         </p>
                     </motion.div>
@@ -58,12 +58,10 @@ const FAQItem = ({ faq, index }) => {
 
 const FAQ = () => {
     return (
-        <section className="py-32">
+        <section className="py-32 bg-white">
             <div className="main-container">
                 <div className="mb-16">
-                    <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">
-                        Frequently asked questions
-                    </h2>
+                    <h2 className="heading-lg mb-4">Frequently asked questions</h2>
                 </div>
                 <div className="flex flex-col">
                     {faqs.map((faq, i) => (

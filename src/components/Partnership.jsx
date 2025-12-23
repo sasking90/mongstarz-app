@@ -1,93 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Building2, Handshake } from 'lucide-react';
-
-const partners = [
-    {
-        title: '광고주를 위한 몽스타즈',
-        subtitle: 'For Advertisers',
-        icon: Briefcase,
-        points: [
-            '단순 노출을 넘어선 강력한 각인 효과',
-            'VTR 100% 보장하는 능동적 광고 시청',
-            '브랜드 메시지의 인지 및 학습 효과 극대화'
-        ],
-        cta: '광고 문의하기',
-        color: '#4BF5D3'
-    },
-    {
-        title: '가맹점주를 위한 몽스타즈',
-        subtitle: 'For Merchants',
-        icon: Building2,
-        points: [
-            '초기 부담 없는 신규 고객 유치',
-            '랜덤 티켓을 통한 매출 뻥튀기 효과',
-            '오프라인 매장 방문 유도 (O2O)'
-        ],
-        cta: '가맹점 입점 문의',
-        color: '#3B82F6'
-    },
-    {
-        title: '사업 파트너 모집',
-        subtitle: 'For Business Partners',
-        icon: Handshake,
-        points: [
-            '본사-총판-대리점의 강력한 수익 구조',
-            '지속 가능한 비즈니스 생태계 구축',
-            '압도적인 수익 파이프라인 제공'
-        ],
-        cta: '파트너십 문의',
-        color: '#8B5CF6'
-    }
-];
+import { Megaphone, Store, Handshake, CheckCircle2 } from 'lucide-react';
 
 const Partnership = () => {
+    const partners = [
+        {
+            title: 'For Advertisers',
+            heading: '브랜드 가치를 높이는 가장 확실한 방법',
+            desc: '단순 노출을 넘어 유저가 직접 참여하고 학습하는 퀴즈형 광고를 통해 브랜드 인지도를 극대화합니다.',
+            features: ['100% 브랜드 학습 보장', '정밀한 타겟팅 시스템', '실시간 캠페인 분석'],
+            icon: Megaphone,
+            color: '#0066FF',
+            image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800'
+        },
+        {
+            title: 'For Merchants',
+            heading: '가맹점 매출 성장의 강력한 파트너',
+            desc: '초기 비용 부담 없이 몽스타즈 유저들을 가맹점으로 유입시켜 오프라인 매출 증대를 돕습니다.',
+            features: ['신규 고객 유입 보장', '랜덤 티켓 방문 유도', '가맹점 전용 홍보 채널'],
+            icon: Store,
+            color: '#00A36C',
+            image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800'
+        }
+    ];
+
     return (
-        <section className="py-24">
+        <section className="py-32 bg-white">
             <div className="main-container">
-                <div className="flex flex-col items-center text-center mb-20">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">PARTNERSHIP</h2>
-                    <p className="text-lg text-text-secondary max-w-2xl">
-                        몽스타즈와 함께 성공을 이끌어갈 <br />
-                        소중한 파트너를 기다립니다.
+                <div className="flex flex-col items-center text-center mb-24">
+                    <h2 className="heading-lg mb-6">Designed by experts, <br /> delivered with care</h2>
+                    <p className="text-xl text-text-secondary max-w-2xl font-medium">
+                        몽스타즈는 비즈니스 파트너의 성공을 위해 <br />
+                        최적화된 생태계를 제공합니다.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div className="space-y-32">
                     {partners.map((partner, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
-                            className="clay-card p-10 flex flex-col h-full"
-                        >
-                            <div
-                                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8"
-                                style={{ backgroundColor: `${partner.color}20`, border: `1px solid ${partner.color}40` }}
+                        <div key={i} className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}>
+                            <motion.div
+                                initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="flex-1"
                             >
-                                <partner.icon size={32} style={{ color: partner.color }} />
-                            </div>
-                            <h3 className="text-2xl font-bold mb-2">{partner.title}</h3>
-                            <p className="text-sm text-accent-green font-bold uppercase tracking-widest mb-8">{partner.subtitle}</p>
+                                <div className="hs-card !p-0 overflow-hidden aspect-video relative group">
+                                    <img
+                                        src={partner.image}
+                                        alt={partner.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                                </div>
+                            </motion.div>
 
-                            <ul className="space-y-4 mb-10 flex-grow">
-                                {partner.points.map((point, j) => (
-                                    <li key={j} className="flex items-start gap-3 text-text-secondary">
-                                        <div className="w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: partner.color }} />
-                                        <span className="text-sm leading-relaxed">{point}</span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <button
-                                className="w-full py-4 rounded-xl font-bold transition-all hover:scale-105 active:scale-95"
-                                style={{ backgroundColor: partner.color, color: '#0B0E23' }}
+                            <motion.div
+                                initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="flex-1 space-y-8"
                             >
-                                {partner.cta}
-                            </button>
-                        </motion.div>
+                                <div className="flex items-center gap-4">
+                                    <div
+                                        className="w-12 h-12 rounded-xl flex items-center justify-center"
+                                        style={{ backgroundColor: `${partner.color}15` }}
+                                    >
+                                        <partner.icon size={24} style={{ color: partner.color }} strokeWidth={2.5} />
+                                    </div>
+                                    <span className="text-sm font-black text-primary tracking-widest uppercase">{partner.title}</span>
+                                </div>
+                                <h3 className="text-4xl font-black leading-tight">{partner.heading}</h3>
+                                <p className="text-lg text-text-secondary leading-relaxed font-medium">{partner.desc}</p>
+                                <ul className="space-y-4">
+                                    {partner.features.map((feature, idx) => (
+                                        <li key={idx} className="flex items-center gap-3 text-text-primary font-bold">
+                                            <CheckCircle2 size={20} className="text-accent-green" strokeWidth={3} />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <button className="hs-button-primary !mt-10">
+                                    자세히 알아보기
+                                </button>
+                            </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
