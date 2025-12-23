@@ -1,79 +1,48 @@
 import React from 'react';
 import Header from './components/Header';
-import HeroBanner from './components/HeroBanner';
-import MenuGrid from './components/MenuGrid';
-import ProductSection from './components/ProductSection';
-import BottomNav from './components/BottomNav';
-import { motion } from 'framer-motion';
-import { Ticket, Clock } from 'lucide-react';
+import Hero from './components/Hero';
+import CategoryGrid from './components/CategoryGrid';
+import Ecosystem from './components/Ecosystem';
+import About from './components/About';
+import Partnership from './components/Partnership';
+import Footer from './components/Footer';
+import Scene from './components/Scene';
 
 function App() {
   return (
-    <div className="container">
+    <div className="bg-bg-deep min-h-screen text-white selection:bg-accent-green selection:text-bg-deep">
+      {/* 3D Background Scene */}
+      <Scene />
+
+      {/* Navigation */}
       <Header />
 
+      {/* Main Content */}
       <main>
-        {/* Stats Section */}
-        <section style={{ padding: '16px 16px 0', display: 'flex', gap: '12px' }}>
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            style={{
-              flex: 1,
-              backgroundColor: 'white',
-              padding: '12px',
-              borderRadius: 'var(--radius-md)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              boxShadow: 'var(--shadow-sm)',
-              border: '1px solid var(--border)'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ backgroundColor: 'rgba(255, 184, 0, 0.1)', padding: '6px', borderRadius: '8px' }}>
-                <Ticket size={20} color="var(--primary)" />
-              </div>
-              <span style={{ fontSize: '18px', fontWeight: '800' }}>29</span>
-            </div>
-            <div style={{ color: 'var(--border)' }}>›</div>
-          </motion.div>
+        <Hero />
 
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            style={{
-              flex: 1,
-              backgroundColor: 'white',
-              padding: '12px',
-              borderRadius: 'var(--radius-md)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              boxShadow: 'var(--shadow-sm)',
-              border: '1px solid var(--border)'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ backgroundColor: 'rgba(46, 204, 113, 0.1)', padding: '6px', borderRadius: '8px' }}>
-                <Clock size={20} color="#2ECC71" />
-              </div>
-              <span style={{ fontSize: '18px', fontWeight: '800' }}>13</span>
-            </div>
-            <div style={{ color: 'var(--border)' }}>›</div>
-          </motion.div>
-        </section>
+        <div id="앱 특징">
+          <CategoryGrid />
+        </div>
 
-        <HeroBanner />
-        <MenuGrid />
+        <div id="회사소개">
+          <About />
+          <Ecosystem />
+        </div>
 
-        {/* Divider */}
-        <div style={{ height: '8px', backgroundColor: 'var(--background)', margin: '16px 0' }}></div>
-
-        <ProductSection />
+        <div id="파트너십">
+          <Partnership />
+        </div>
       </main>
 
-      <BottomNav />
+      {/* Footer */}
+      <div id="고객지원">
+        <Footer />
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
