@@ -3,19 +3,14 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import NeedsGrid from './components/NeedsGrid';
 import CategoryGrid from './components/CategoryGrid';
-import Ecosystem from './components/Ecosystem';
-import About from './components/About';
 import Partnership from './components/Partnership';
+import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-import Scene from './components/Scene';
 
 function App() {
   return (
-    <div className="bg-bg-deep min-h-screen text-white selection:bg-accent-green selection:text-bg-deep">
-      {/* 3D Background Scene */}
-      <Scene />
-
+    <div className="bg-[#F7F3F0] min-h-screen text-text-primary selection:bg-primary selection:text-white">
       {/* Navigation */}
       <Header />
 
@@ -29,14 +24,11 @@ function App() {
           <CategoryGrid />
         </div>
 
-        <div id="회사소개">
-          <About />
-          <Ecosystem />
-        </div>
-
         <div id="파트너십">
           <Partnership />
         </div>
+
+        <Testimonials />
 
         <FAQ />
       </main>
@@ -50,5 +42,3 @@ function App() {
 }
 
 export default App;
-
-
