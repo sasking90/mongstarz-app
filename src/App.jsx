@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import NeedsGrid from './components/NeedsGrid';
 import CategoryGrid from './components/CategoryGrid';
 import Ecosystem from './components/Ecosystem';
 import About from './components/About';
 import Partnership from './components/Partnership';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Scene from './components/Scene';
 
@@ -21,6 +23,8 @@ function App() {
       <main>
         <Hero />
 
+        <NeedsGrid />
+
         <div id="앱 특징">
           <CategoryGrid />
         </div>
@@ -33,6 +37,8 @@ function App() {
         <div id="파트너십">
           <Partnership />
         </div>
+
+        <FAQ />
       </main>
 
       {/* Footer */}
