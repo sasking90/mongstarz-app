@@ -1,31 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Colors */
-  --bg-deep: #0B0E23;
-  --bg-cosmic: #1A1A2E;
-  --accent-green: #4BF5D3;
-  --accent-violet: #8B5CF6;
+  /* Colors - Deeper, more vibrant QClay palette */
+  --bg-deep: #05070A;
+  --bg-cosmic: #0D1117;
+  --accent-green: #00FFC2;
+  /* More neon */
+  --accent-violet: #A855F7;
   --accent-blue: #3B82F6;
+  --accent-pink: #FF00E5;
   --text-primary: #FFFFFF;
-  --text-secondary: #E2E8F0;
-  --text-muted: #94A3B8;
+  --text-secondary: #CBD5E1;
+  --text-muted: #64748B;
 
   /* Gradients */
-  --grad-cosmic: linear-gradient(135deg, #1A1A2E 0%, #0B0E23 100%);
+  --grad-cosmic: linear-gradient(135deg, #0D1117 0%, #05070A 100%);
   --grad-accent: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+  --grad-neon: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
 
   /* Fonts */
   --font-main: 'Outfit', 'Inter', sans-serif;
 
-  /* Shadows & Effects */
-  --shadow-clay: 8px 8px 16px rgba(0, 0, 0, 0.25),
-    inset -8px -8px 12px rgba(0, 0, 0, 0.3),
-    inset 8px 8px 12px rgba(255, 255, 255, 0.1);
-  --shadow-glow: 0 0 20px rgba(75, 245, 211, 0.3);
+  /* Refined Claymorphism - Softer, deeper 3D look */
+  --shadow-clay:
+    12px 12px 24px rgba(0, 0, 0, 0.4),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.05);
 
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  --shadow-clay-sm:
+    6px 6px 12px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.5),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.05);
+
+  --shadow-glow: 0 0 30px rgba(0, 255, 194, 0.2);
+
+  --radius-lg: 32px;
+  --radius-xl: 48px;
   --radius-full: 9999px;
 }
 
@@ -74,16 +84,37 @@ section {
 
 /* Claymorphism */
 .clay-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-clay);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .clay-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-12px) scale(1.02);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    20px 20px 40px rgba(0, 0, 0, 0.5),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.08);
+}
+
+.clay-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-clay-sm);
+  transition: all 0.3s ease;
+}
+
+.clay-button:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Glassmorphism */
